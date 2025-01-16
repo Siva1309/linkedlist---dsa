@@ -1,30 +1,29 @@
 class Solution {
   public:
     Node *insertAtEnd(Node *head, int x) {
-        // Code here
-        //Node* last = new Node(x);
         
-        //last->next = nullptr;
+        Node* ni = new Node(x);
         
-        Node* last = new Node(x);
-        last->next = nullptr; // New node points to null as it will be the last node
-
-        // If the list is empty, the new node becomes the head
-         // Return the updated head
-         
-        if (head == nullptr) {
-            //head = last;
+        
+        while(head==nullptr)
+        {
+            head = ni;
             return head;
         }
-// Traverse to the end of the list
-        Node* temp = head;
-        while (temp->next != nullptr) {
+        
+    
+        
+        Node *temp = head;
+        
+        while(temp->next != nullptr)
+        {
             temp = temp->next;
         }
-
-        // Append the new node at the end
-         temp->next = last;
-
+        
+        temp -> next = ni;
+        
+        ni-> next = nullptr;
+        
         return head;
     }
 };
