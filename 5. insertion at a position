@@ -1,0 +1,33 @@
+class Solution {
+  public:
+    /* Function to delete a node from a linked list */
+    Node* deleteNode(Node* head, int x) {
+        // cdoe here
+        if(!head){
+            return head;
+        }
+        if(x==1)
+        {
+            Node *temp = head;
+            head = head->next;
+            delete temp;
+            return head;
+        }
+        
+        int cnt=2;
+        Node *temp = head;
+        while(cnt != x)
+        {
+            cnt++;
+            temp = temp -> next;
+        }
+        
+        
+         Node *deleteto = temp->next;
+         temp->next = temp->next->next;
+         delete deleteto;
+        
+         return head;
+    }
+    
+};
